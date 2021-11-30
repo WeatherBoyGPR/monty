@@ -146,7 +146,7 @@ char pop_q(char *l, char *arg, int line, stack_t **poi)
 	if (tar == NULL)
 	{
 		free(l);
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		if (poi)
 			breakdown(*poi, 'q', EXIT_FAILURE);
 		else
