@@ -10,16 +10,22 @@
 int num_get(char *l, char *err)
 {
 	char *buf = NULL;
+	int res = 1;
 
 	if (l)
 	{
+		if (*l == '-')
+		{
+			l++;
+			res *= -1;
+		}
 		for (buf = l; *buf != '\0'; buf++)
-			if (*buf < '0' || *buf > '9')
+			if ((*buf < '0' || *buf > '9'))
 			{
 				*err += 1;
 				return (0);
 			}
-		return (atoi(l));
+		return (atoi(l) * res);
 	}
 	*err += 1;
 	return (0);
