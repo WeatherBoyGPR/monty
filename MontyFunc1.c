@@ -23,7 +23,7 @@ char push_s(char *l, char *arg, int line, stack_t **poi)
 		if (poi)
 			breakdown(*poi, 's', EXIT_FAILURE);
 		else
-			breakdown(NULL, 'q', EXIT_FAILURE);
+			breakdown(NULL, 's', EXIT_FAILURE);
 	}
 
 	new = create_node(poi, 's', l);
@@ -122,9 +122,9 @@ char pop_s(char *l, char *arg, int line, stack_t **poi)
 		free(l);
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		if (poi)
-			breakdown(*poi, 'q', EXIT_FAILURE);
+			breakdown(*poi, 's', EXIT_FAILURE);
 		else
-			breakdown(NULL, 'q', EXIT_FAILURE);
+			breakdown(NULL, 's', EXIT_FAILURE);
 	}
 	while (tar->next != NULL)
 		tar = tar->next;

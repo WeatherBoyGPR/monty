@@ -18,13 +18,15 @@ int main(int argc, char **argv)
 		{"push", push_s},
 		{"pall", pall_s},
 		{"pint", pint_s},
-		{"queue", queue_set},
 		{"pop", pop_s},
+		{"swap", swap_s},
+		{"queue", queue_set},
 		{NULL, NULL},
 		{"push", push_q},
 		{"pall", pall_q},
 		{"pint", pint_q},
 		{"pop", pop_q},
+		{"swap", swap_q},
 		{"stack", stack_set},
 		{NULL, NULL}
 	};
@@ -69,7 +71,7 @@ char M_core(char *l, int line, instruction_t *mfunc, char mode, stack_t **stk)
 	if (!l)
 		return (mode);
 	if (mode == 'q')
-		n = 6;
+		n = 7;
 	ln = malloc((strlen(l) + 1) * sizeof(char));
 	if (ln == NULL)
 		mal_error(stk, mode, l);
