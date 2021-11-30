@@ -15,21 +15,13 @@ int main(int argc, char **argv)
 	char mode = 's', *l = NULL;
 	stack_t *stk = NULL;
 	instruction_t mfunc[] = {
-		{"push", push_s},
-		{"pall", pall_s},
-		{"pint", pint_s},
-		{"pop", pop_s},
-		{"swap", swap_s},
-		{"add", add_s},
-		{"queue", queue_set},
+		{"push", push_s}, {"pall", pall_s}, {"pint", pint_s},
+		{"pop", pop_s}, {"swap", swap_s}, {"add", add_s},
+		{"nop", stack_set}, {"queue", queue_set},
 		{NULL, NULL},
-		{"push", push_q},
-		{"pall", pall_q},
-		{"pint", pint_q},
-		{"pop", pop_q},
-		{"swap", swap_q},
-		{"add", add_q},
-		{"stack", stack_set},
+		{"push", push_q}, {"pall", pall_q}, {"pint", pint_q},
+		{"pop", pop_q}, {"swap", swap_q}, {"add", add_q},
+		{"nop", queue_set}, {"stack", stack_set},
 		{NULL, NULL}
 	};
 	if (argc != 2)

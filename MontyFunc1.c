@@ -78,7 +78,6 @@ char stack_set(char *l, char *arg, int line, stack_t **poi)
 	(void) arg;
 	(void) line;
 	(void) poi;
-	printf("TESTstack_set\n");
 	return ('s');
 }
 
@@ -97,7 +96,6 @@ char queue_set(char *l, char *arg, int line, stack_t **poi)
 	(void) arg;
 	(void) line;
 	(void) poi;
-	printf("TESTqueue_set\n");
 	return ('q');
 }
 
