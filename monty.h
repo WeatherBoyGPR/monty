@@ -69,5 +69,7 @@ char pop_q(char *l, char *arg, int line, stack_t **poi);
 /* MontyFunc3.c */
 char swap_s(char *l, char *arg, int line, stack_t **poi);
 char swap_q(char *l, char *arg, int line, stack_t **poi);
+char add_s(char *l, char *arg, int line, stack_t **poi);
+char add_q(char *l, char *arg, int line, stack_t **poi);
 
 #endif

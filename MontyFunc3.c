@@ -73,3 +73,69 @@ char swap_q(char *l, char *arg, int line, stack_t **poi)
 		breakdown(NULL, 'q', EXIT_FAILURE);
 	return ('q');
 }
+
+/**
+ * add_s - will add top two members of stack, result in second from top
+ * @l: line to free on error
+ * @arg: arg to process into an integer
+ * @line: current line number
+ * @poi: position somewhere in stack
+ *
+ * Return: stack mode indicator
+ */
+char add_s(char *l, char *arg, int line, stack_t **poi)
+{
+	int buf;
+	stack_t *chk;
+
+	(void) arg;
+	if (poi)
+		chk = *poi;
+	if (chk == NULL || (chk->prev == NULL && chk->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		free(l);
+		if (poi)
+			breakdown(*poi, 's', EXIT_FAILURE);
+		else
+			breakdown(NULL, 's', EXIT_FAILURE);
+	}
+	buf = rm_tl(poi, NULL);
+	chk = *poi;
+	chk->n += buf;
+
+	return ('s');
+}
+
+/**
+ * add_q - will add first two members of queue, result in second first
+ * @l: line to free on error
+ * @arg: arg to process into an integer
+ * @line: current line number
+ * @poi: position somewhere in stack
+ *
+ * Return: stack mode indicator
+ */
+char add_q(char *l, char *arg, int line, stack_t **poi)
+{
+	int buf;
+	stack_t *chk;
+
+	(void) arg;
+	if (poi)
+		chk = *poi;
+	if (chk == NULL || (chk->prev == NULL && chk->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		free(l);
+		if (poi)
+			breakdown(*poi, 'q', EXIT_FAILURE);
+		else
+			breakdown(NULL, 'q', EXIT_FAILURE);
+	}
+	buf = rm_hd(poi, NULL);
+	chk = *poi;
+	chk += buf;
+
+	return ('q');
+}

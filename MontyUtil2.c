@@ -47,7 +47,8 @@ int rm_tl(stack_t **poi, char *s)
 		tar = *poi;
 	if (tar == NULL)
 	{
-		*s += 1;
+		if (s)
+			*s += 1;
 		return (0);
 	}
 	while (tar->next != NULL)
@@ -77,7 +78,8 @@ int rm_hd(stack_t **poi, char *s)
 		tar = *poi;
 	if (tar == NULL)
 	{
-		*s += 1;
+		if (s)
+			*s += 1;
 		return (0);
 	}
 		while (tar->prev != NULL)

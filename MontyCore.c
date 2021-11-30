@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 		{"pint", pint_s},
 		{"pop", pop_s},
 		{"swap", swap_s},
+		{"add", add_s},
 		{"queue", queue_set},
 		{NULL, NULL},
 		{"push", push_q},
@@ -27,6 +28,7 @@ int main(int argc, char **argv)
 		{"pint", pint_q},
 		{"pop", pop_q},
 		{"swap", swap_q},
+		{"add", add_q},
 		{"stack", stack_set},
 		{NULL, NULL}
 	};
@@ -42,10 +44,7 @@ int main(int argc, char **argv)
 		breakdown(NULL, mode, EXIT_FAILURE);
 	}
 	while (getline(&l, &len, FD) != -1)
-	{
-		mode = M_core(l, line, mfunc, mode, &stk);
-		line++;
-	}
+		mode = M_core(l, line, mfunc, mode, &stk), line++;
 	fclose(FD), free(l);
 	breakdown(stk, mode, ex);
 	return (ex);
@@ -71,7 +70,11 @@ char M_core(char *l, int line, instruction_t *mfunc, char mode, stack_t **stk)
 	if (!l)
 		return (mode);
 	if (mode == 'q')
-		n = 7;
+	{
+		while (mfunc[n].opcode != NULL)
+			n++;
+		n++;
+	}
 	ln = malloc((strlen(l) + 1) * sizeof(char));
 	if (ln == NULL)
 		mal_error(stk, mode, l);
