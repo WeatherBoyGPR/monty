@@ -71,5 +71,17 @@ char swap_s(char *l, char *arg, int line, stack_t **poi);
 char swap_q(char *l, char *arg, int line, stack_t **poi);
 char add_s(char *l, char *arg, int line, stack_t **poi);
 char add_q(char *l, char *arg, int line, stack_t **poi);
+char mod_s(char *l, char *arg, int line, stack_t **poi);
+
+/* MontyFunc4.c */
+char sub_s(char *l, char *arg, int line, stack_t **poi);
+char sub_q(char *l, char *arg, int line, stack_t **poi);
+char div_s(char *l, char *arg, int line, stack_t **poi);
+char div_q(char *l, char *arg, int line, stack_t **poi);
+char mod_q(char *l, char *arg, int line, stack_t **poi);
+
+/* MontyFunc5.c */
+char mul_s(char *l, char *arg, int line, stack_t **poi);
+char mul_q(char *l, char *arg, int line, stack_t **poi);
 
 #endif
