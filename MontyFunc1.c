@@ -20,7 +20,10 @@ char push_s(char *l, char *arg, int line, stack_t **poi)
 	{
 		free(l);
 		fprintf(stderr, "L%d: usage: push integer\n", line);
-		breakdown(NULL, 's', EXIT_FAILURE);
+		if (poi)
+			breakdown(*poi, 's', EXIT_FAILURE);
+		else
+			breakdown(NULL, 'q', EXIT_FAILURE);
 	}
 
 	new = create_node(poi, 's', l);
@@ -48,7 +51,10 @@ char push_q(char *l, char *arg, int line, stack_t **poi)
 	{
 		free(l);
 		fprintf(stderr, "L%d: usage: push integer\n", line);
-		breakdown(NULL, 'q', EXIT_FAILURE);
+		if (poi)
+			breakdown(*poi, 'q', EXIT_FAILURE);
+		else
+			breakdown(NULL, 'q', EXIT_FAILURE);
 	}
 
 	new = create_node(poi, 's', l);
@@ -93,4 +99,39 @@ char queue_set(char *l, char *arg, int line, stack_t **poi)
 	(void) poi;
 	printf("TESTqueue_set\n");
 	return ('q');
+}
+
+/**
+ * pop_s - Will pop node on stack
+ * @l: line to free on error
+ * @arg: arg to process into an integer
+ * @line: current line number
+ * @poi: position somewhere in stack
+ *
+ * Return: current mode
+ */
+char pop_s(char *l, char *arg, int line, stack_t **poi)
+{
+	stack_t *tar = NULL;
+
+	(void) arg;
+	if (poi != NULL)
+		tar = *poi;
+	if (tar == NULL)
+	{
+		free(l);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		if (poi)
+			breakdown(*poi, 'q', EXIT_FAILURE);
+		else
+			breakdown(NULL, 'q', EXIT_FAILURE);
+	}
+	while (tar->next != NULL)
+		tar = tar->next;
+	*poi = tar->prev;
+	if (tar->prev)
+		tar->prev->next = NULL;
+	free(tar);
+
+	return ('s');
 }

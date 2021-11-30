@@ -12,22 +12,22 @@ int main(int argc, char **argv)
 	FILE *FD = NULL;
 	int ex = EXIT_SUCCESS, line = 1;
 	size_t len = 0;
-	char mode = 's';
-	char *l = NULL;
+	char mode = 's', *l = NULL;
 	stack_t *stk = NULL;
 	instruction_t mfunc[] = {
 		{"push", push_s},
 		{"pall", pall_s},
 		{"pint", pint_s},
 		{"queue", queue_set},
+		{"pop", pop_s},
 		{NULL, NULL},
 		{"push", push_q},
 		{"pall", pall_q},
 		{"pint", pint_q},
+		{"pop", pop_q},
 		{"stack", stack_set},
 		{NULL, NULL}
 	};
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -44,9 +44,7 @@ int main(int argc, char **argv)
 		mode = M_core(l, line, mfunc, mode, &stk);
 		line++;
 	}
-	fclose(FD);
-	free(l);
-
+	fclose(FD), free(l);
 	breakdown(stk, mode, ex);
 	return (ex);
 }
@@ -71,7 +69,7 @@ char M_core(char *l, int line, instruction_t *mfunc, char mode, stack_t **stk)
 	if (!l)
 		return (mode);
 	if (mode == 'q')
-		n = 5;
+		n = 6;
 	ln = malloc((strlen(l) + 1) * sizeof(char));
 	if (ln == NULL)
 		mal_error(stk, mode, l);
