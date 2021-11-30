@@ -166,6 +166,14 @@ char mod_s(char *l, char *arg, int line, stack_t **poi)
 		else
 			breakdown(NULL, 's', EXIT_FAILURE);
 	}
+	while (chk->next != NULL)
+		chk = chk->next;
+	if (chk->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		free(l);
+		breakdown(*poi, 's', EXIT_FAILURE);
+	}
 	buf = rm_tl(poi, NULL);
 	chk = *poi;
 	chk->n %= buf;

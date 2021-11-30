@@ -93,6 +93,14 @@ char div_s(char *l, char *arg, int line, stack_t **poi)
 		else
 			breakdown(NULL, 's', EXIT_FAILURE);
 	}
+	while (chk->next != NULL)
+		chk = chk->next;
+	if (chk->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		free(l);
+		breakdown(*poi, 's', EXIT_FAILURE);
+	}
 	buf = rm_tl(poi, NULL);
 	chk = *poi;
 	chk->n /= buf;
@@ -126,6 +134,14 @@ char div_q(char *l, char *arg, int line, stack_t **poi)
 		else
 			breakdown(NULL, 'q', EXIT_FAILURE);
 	}
+	while (chk->prev != NULL)
+		chk = chk->prev;
+	if (chk->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		free(l);
+		breakdown(*poi, 'q', EXIT_FAILURE);
+	}
 	buf = rm_hd(poi, NULL);
 	chk = *poi;
 	chk->n /= buf;
@@ -158,6 +174,14 @@ char mod_q(char *l, char *arg, int line, stack_t **poi)
 			breakdown(*poi, 'q', EXIT_FAILURE);
 		else
 			breakdown(NULL, 'q', EXIT_FAILURE);
+	}
+	while (chk->prev != NULL)
+		chk = chk->prev;
+	if (chk->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line);
+		free(l);
+		breakdown(*poi, 'q', EXIT_FAILURE);
 	}
 	buf = rm_hd(poi, NULL);
 	chk = *poi;
