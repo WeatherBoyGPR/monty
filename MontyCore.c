@@ -22,8 +22,8 @@ int main(int argc, char **argv)
 		{NULL, NULL},
 		{"push", push_q}, {"pall", pall_q}, {"pint", pint_q},
 		{"pop", pop_q}, {"swap", swap_q}, {"add", add_q},
-                {"sub", sub_q}, {"div", div_q}, {"mul", mul_q},
-                {"mod", mod_q}, {"nop", queue_set}, {"stack", stack_set},
+		{"sub", sub_q}, {"div", div_q}, {"mul", mul_q},
+		{"mod", mod_q}, {"nop", queue_set}, {"stack", stack_set},
 		{NULL, NULL}
 	};
 	if (argc != 2)
