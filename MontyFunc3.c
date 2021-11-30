@@ -28,7 +28,7 @@ char swap_s(char *l, char *arg, int line, stack_t **poi)
 		fir->n = buf;
 		return ('s');
 	}
-	fprintf(stderr, "L%d: can't swap, stack too short", line);
+	fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 	free(l);
 	if (poi)
 		breakdown(*poi, 's', EXIT_FAILURE);
@@ -65,7 +65,7 @@ char swap_q(char *l, char *arg, int line, stack_t **poi)
 		fir->n = buf;
 		return ('q');
 	}
-	fprintf(stderr, "L%d: can't swap, stack too short", line);
+	fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 	free(l);
 	if (poi)
 		breakdown(*poi, 'q', EXIT_FAILURE);
