@@ -112,12 +112,11 @@ char queue_set(char *l, char *arg, int line, stack_t **poi)
  */
 char pop_s(char *l, char *arg, int line, stack_t **poi)
 {
-	stack_t *tar = NULL;
+	char err;
 
 	(void) arg;
-	if (poi != NULL)
-		tar = *poi;
-	if (tar == NULL)
+	rm_tl(poi, &err);
+	if (err)
 	{
 		free(l);
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
@@ -126,12 +125,6 @@ char pop_s(char *l, char *arg, int line, stack_t **poi)
 		else
 			breakdown(NULL, 's', EXIT_FAILURE);
 	}
-	while (tar->next != NULL)
-		tar = tar->next;
-	*poi = tar->prev;
-	if (tar->prev)
-		tar->prev->next = NULL;
-	free(tar);
 
 	return ('s');
 }

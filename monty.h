@@ -47,8 +47,10 @@ void breakdown(stack_t *point, char mode, int stat);
 void freestack_hd(stack_t *head);
 void freestack_tl(stack_t *tail);
 
-/* MontyUtil1.c */
+/* MontyUtil2.c */
 stack_t *create_node(stack_t **poi, char mode, char *line);
+int rm_tl(stack_t **poi, char *s);
+int rm_hd(stack_t **poi, char *s);
 
 /* MontyFunc1.c */
 char push_s(char *l, char *arg, int line, stack_t **poi);

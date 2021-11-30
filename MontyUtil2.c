@@ -30,3 +30,64 @@ stack_t *create_node(stack_t **poi, char mode, char *line)
 	newn->prev = spear;
 	return (newn);
 }
+
+/**
+ * rm_tl - will remove tail/top of stack
+ * @poi: position within stack
+ * @s: err status. set to 1 on error
+ *
+ * Return: value held by top
+ */
+int rm_tl(stack_t **poi, char *s)
+{
+	stack_t *tar = NULL;
+	int res;
+
+	if (poi != NULL)
+		tar = *poi;
+	if (tar == NULL)
+	{
+		*s += 1;
+		return (0);
+	}
+	while (tar->next != NULL)
+		tar = tar->next;
+	*poi = tar->prev;
+	if (tar->prev)
+		tar->prev->next = NULL;
+	res = tar->n;
+	free(tar);
+
+	return (res);
+}
+
+/**
+ * rm_hd - will remove head/front of queue
+ * @poi: point within queue
+ * @s: err status, set to 1 on error
+ *
+ * Return: value held by front
+ */
+int rm_hd(stack_t **poi, char *s)
+{
+	stack_t *tar = NULL;
+	int res;
+
+	if (poi != NULL)
+		tar = *poi;
+	if (tar == NULL)
+	{
+		*s += 1;
+		return (0);
+	}
+		while (tar->prev != NULL)
+		tar = tar->prev;
+	*poi = tar->next;
+	if (tar->next)
+		tar->next->prev = NULL;
+	res = tar->n;
+	free(tar);
+
+	return (res);
+}
+

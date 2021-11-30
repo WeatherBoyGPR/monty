@@ -138,12 +138,11 @@ char pint_q(char *l, char *arg, int line, stack_t **poi)
  */
 char pop_q(char *l, char *arg, int line, stack_t **poi)
 {
-	stack_t *tar = NULL;
+	char err;
 
 	(void) arg;
-	if (poi != NULL)
-		tar = *poi;
-	if (tar == NULL)
+	rm_hd(poi, &err);
+	if (err)
 	{
 		free(l);
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
@@ -152,12 +151,6 @@ char pop_q(char *l, char *arg, int line, stack_t **poi)
 		else
 			breakdown(NULL, 'q', EXIT_FAILURE);
 	}
-	while (tar->prev != NULL)
-		tar = tar->prev;
-	*poi = tar->next;
-	if (tar->next)
-		tar->next->prev = NULL;
-	free(tar);
 
 	return ('q');
 }
