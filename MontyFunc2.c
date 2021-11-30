@@ -63,3 +63,48 @@ char pall_q(char *l, char *arg, int line, stack_t **poi)
 	}
 	return ('q');
 }
+
+char pint_s(char *l, char *arg, int line, stack_t **poi)
+{
+	stack_t *top = NULL;
+
+	(void) l;
+	(void) arg;
+	(void) line;
+	if (poi)
+		top = *poi;
+	if (top == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		breakdown(NULL, 'q', EXIT_FAILURE);
+	}
+
+	while (top->next != NULL)
+		top = top->next;
+	*poi = top;
+	printf("%d\n", top->n);
+	return ('s');
+}
+
+char pint_q(char *l, char *arg, int line, stack_t **poi)
+{
+	stack_t *front = NULL;
+
+	(void) l;
+	(void) arg;
+	(void) line;
+	if (poi)
+		front = *poi;
+
+	if (front == NULL)
+		if (front == NULL)
+		{
+			fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+			breakdown(NULL, 'q', EXIT_FAILURE);
+		}
+	while (front->prev != NULL)
+		front = front->prev;
+	*poi = front;
+	printf("%d\n", front->n);
+	return ('q');
+}

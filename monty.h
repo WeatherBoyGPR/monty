@@ -59,5 +59,7 @@ char queue_set(char *l, char *arg, int line, stack_t **poi);
 /* MontyFunc2.c */
 char pall_s(char *l, char *arg, int line, stack_t **poi);
 char pall_q(char *l, char *arg, int line, stack_t **poi);
+char pint_s(char *l, char *arg, int line, stack_t **poi);
+char pint_q(char *l, char *arg, int line, stack_t **poi);
 
 #endif
