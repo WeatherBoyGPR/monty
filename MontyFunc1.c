@@ -1,4 +1,4 @@
-#include "Monty.h"
+#include "monty.h"
 
 /**
  * push_s - will push data to stack in stack mode

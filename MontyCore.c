@@ -1,4 +1,4 @@
-#include "Monty.h"
+#include "monty.h"
 
 /**
  * main - will feed input into the monty core and hold data between commandd

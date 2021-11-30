@@ -1,4 +1,4 @@
-#include "Monty.h"
+#include "monty.h"
 
 /**
  * create_node - Will create an empty node at the top/front of current stack
