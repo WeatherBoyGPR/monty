@@ -49,7 +49,7 @@ char swap_s(char *l, char *arg, int line, stack_t **poi)
 char swap_q(char *l, char *arg, int line, stack_t **poi)
 {
 	stack_t *fir = NULL, *sec = NULL;
-	int buf;
+	int buf = 0;
 
 	(void) arg;
 

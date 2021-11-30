@@ -112,7 +112,7 @@ char queue_set(char *l, char *arg, int line, stack_t **poi)
  */
 char pop_s(char *l, char *arg, int line, stack_t **poi)
 {
-	char err;
+	char err = 0;
 
 	(void) arg;
 	rm_tl(poi, &err);
