@@ -139,6 +139,6 @@ char pchar_q(char *l, char *arg, int line, stack_t **poi)
 	}
 
 	putchar(chk->n);
-	puchar('\n');
+	putchar('\n');
 	return ('q');
 }
