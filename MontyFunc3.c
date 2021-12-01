@@ -86,7 +86,7 @@ char swap_q(char *l, char *arg, int line, stack_t **poi)
 char add_s(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -119,7 +119,7 @@ char add_s(char *l, char *arg, int line, stack_t **poi)
 char add_q(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -152,7 +152,7 @@ char add_q(char *l, char *arg, int line, stack_t **poi)
 char mod_s(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)

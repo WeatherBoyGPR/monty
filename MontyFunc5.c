@@ -12,7 +12,7 @@
 char mul_s(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -45,7 +45,7 @@ char mul_s(char *l, char *arg, int line, stack_t **poi)
 char mul_q(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -66,3 +66,77 @@ char mul_q(char *l, char *arg, int line, stack_t **poi)
 	return ('q');
 }
 
+/**
+ * pchar_s - will print value at top of stack as ASCII char
+ * @l: line to free on error
+ * @arg: arg to process into an integer
+ * @line: current line number
+ * @poi: position somewhere in stack
+ *
+ * Return: stack mode indicator
+ */
+char pchar_s(char *l, char *arg, int line, stack_t **poi)
+{
+	stack_t *chk = NULL;
+
+	(void) arg;
+	if (poi)
+		chk = *poi;
+	if (chk == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
+		free(l);
+		if (poi)
+			breakdown(*poi, 's', EXIT_FAILURE);
+		else
+			breakdown(NULL, 's', EXIT_FAILURE);
+	}
+	while (chk->next != NULL)
+		chk = chk->next;
+	if (chk->n < 0 || chk->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+		free(l);
+		breakdown(*poi, 's', EXIT_FAILURE);
+	}
+	putchar(chk->n);
+	return ('s');
+}
+
+/**
+ * pchar_q - will print value at front of queue as ASCII char
+ * @l: line to free on error
+ * @arg: arg to process into an integer
+ * @line: current line number
+ * @poi: position somewhere in stack
+ *
+ * Return: stack mode indicator
+ */
+char pchar_q(char *l, char *arg, int line, stack_t **poi)
+{
+	stack_t *chk = NULL;
+
+	(void) arg;
+	if (poi)
+		chk = *poi;
+	if (chk == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
+		free(l);
+		if (poi)
+			breakdown(*poi, 'q', EXIT_FAILURE);
+		else
+			breakdown(NULL, 'q', EXIT_FAILURE);
+	}
+	while (chk->prev != NULL)
+		chk = chk->prev;
+	if (chk->n < 0 || chk->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+		free(l);
+		breakdown(*poi, 'q', EXIT_FAILURE);
+	}
+
+	putchar(chk->n);
+	return ('q');
+}

@@ -12,7 +12,7 @@
 char sub_s(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -45,7 +45,7 @@ char sub_s(char *l, char *arg, int line, stack_t **poi)
 char sub_q(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -79,7 +79,7 @@ char sub_q(char *l, char *arg, int line, stack_t **poi)
 char div_s(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -120,7 +120,7 @@ char div_s(char *l, char *arg, int line, stack_t **poi)
 char div_q(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
@@ -161,7 +161,7 @@ char div_q(char *l, char *arg, int line, stack_t **poi)
 char mod_q(char *l, char *arg, int line, stack_t **poi)
 {
 	int buf;
-	stack_t *chk;
+	stack_t *chk = NULL;
 
 	(void) arg;
 	if (poi)
