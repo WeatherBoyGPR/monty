@@ -85,11 +85,13 @@ char mul_s(char *l, char *arg, int line, stack_t **poi);
 char mul_q(char *l, char *arg, int line, stack_t **poi);
 char pchar_s(char *l, char *arg, int line, stack_t **poi);
 char pchar_q(char *l, char *arg, int line, stack_t **poi);
+char rotr_s(char *l, char *arg, int line, stack_t **poi);
 
 /* MontyFunc6.c */
 char pstr_s(char *l, char *arg, int line, stack_t **poi);
 char pstr_q(char *l, char *arg, int line, stack_t **poi);
 char rotl_s(char *l, char *arg, int line, stack_t **poi);
 char rotl_q(char *l, char *arg, int line, stack_t **poi);
+char rotr_q(char *l, char *arg, int line, stack_t **poi);
 
 #endif

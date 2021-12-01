@@ -142,3 +142,40 @@ char pchar_q(char *l, char *arg, int line, stack_t **poi)
 	putchar('\n');
 	return ('q');
 }
+
+/**
+ * rotr_s - will rotate stack to bottom
+ * @l: line to free on error
+ * @arg: arg to process into an integer
+ * @line: current line number
+ * @poi: position somewhere in stack
+ *
+ * Return: stack mode indicator
+ */
+char rotr_s(char *l, char *arg, int line, stack_t **poi)
+{
+	stack_t *tar = NULL;
+	stack_t *des = NULL;
+
+	(void) l;
+	(void) arg;
+	(void) line;
+
+	if (poi == NULL)
+		return ('s');
+	if (*poi == NULL)
+		return ('s');
+	tar = *poi, des = *poi;
+	if (tar->next == NULL && tar->prev == NULL)
+		return ('s');
+	while (tar->prev)
+		tar = tar->prev;
+	while (des->next)
+		des = des->next;
+	tar->next->prev = NULL;
+	tar->next = NULL;
+	des->next = tar;
+	tar->prev = des;
+
+	return ('s');
+}
