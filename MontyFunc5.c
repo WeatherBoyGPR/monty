@@ -100,6 +100,7 @@ char pchar_s(char *l, char *arg, int line, stack_t **poi)
 		breakdown(*poi, 's', EXIT_FAILURE);
 	}
 	putchar(chk->n);
+	putchar('\n');
 	return ('s');
 }
 
@@ -138,5 +139,6 @@ char pchar_q(char *l, char *arg, int line, stack_t **poi)
 	}
 
 	putchar(chk->n);
+	puchar('\n');
 	return ('q');
 }
