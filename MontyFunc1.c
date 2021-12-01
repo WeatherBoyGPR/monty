@@ -26,7 +26,7 @@ char push_s(char *l, char *arg, int line, stack_t **poi)
 			breakdown(NULL, 's', EXIT_FAILURE);
 	}
 
-	new = create_node(poi, 's', l);
+	new = create_node_s(poi, 's', l);
 	new->n = n;
 	return ('s');
 }
@@ -57,7 +57,7 @@ char push_q(char *l, char *arg, int line, stack_t **poi)
 			breakdown(NULL, 'q', EXIT_FAILURE);
 	}
 
-	new = create_node(poi, 's', l);
+	new = create_node_q(poi, 's', l);
 	new->n = n;
 
 	return ('q');

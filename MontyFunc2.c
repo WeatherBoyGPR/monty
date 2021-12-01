@@ -33,38 +33,6 @@ char pall_s(char *l, char *arg, int line, stack_t **poi)
 }
 
 /**
- * pall_q - Will print entire queue
- * @l: line to free on error
- * @arg: arg to process into an integer
- * @line: current line number
- * @poi: position somewhere in stack
- *
- * Return: current mode
- */
-char pall_q(char *l, char *arg, int line, stack_t **poi)
-{
-	stack_t *front = NULL;
-
-	(void) l;
-	(void) arg;
-	(void) line;
-	if (poi)
-		front = *poi;
-	if (front)
-	{
-		while (front->prev != NULL)
-			front = front->prev;
-		*poi = front;
-		while (front)
-		{
-			printf("%d\n", front->n);
-			front = front->next;
-		}
-	}
-	return ('q');
-}
-
-/**
  * pint_s - will print top of stack
  * @l: line to free on error
  * @arg: arg to process into an integer
@@ -95,62 +63,3 @@ char pint_s(char *l, char *arg, int line, stack_t **poi)
 	return ('s');
 }
 
-/**
- * pint_q - will print front of queue
- * @l: line to free on error
- * @arg: arg to process into an integer
- * @line: current line number
- * @poi: position somewhere in stack
- *
- * Return: current mode
- */
-char pint_q(char *l, char *arg, int line, stack_t **poi)
-{
-	stack_t *front = NULL;
-
-	(void) l;
-	(void) arg;
-	(void) line;
-	if (poi)
-		front = *poi;
-
-	if (front == NULL)
-		if (front == NULL)
-		{
-			fprintf(stderr, "L%d: can't pint, stack empty\n", line);
-			breakdown(NULL, 'q', EXIT_FAILURE);
-		}
-	while (front->prev != NULL)
-		front = front->prev;
-	*poi = front;
-	printf("%d\n", front->n);
-	return ('q');
-}
-
-/**
- * pop_q - Will pop node on a queue
- * @l: line to free on error
- * @arg: arg to process into an integer
- * @line: current line number
- * @poi: position somewhere in stack
- *
- * Return: current mode
- */
-char pop_q(char *l, char *arg, int line, stack_t **poi)
-{
-	char err;
-
-	(void) arg;
-	rm_hd(poi, &err);
-	if (err)
-	{
-		free(l);
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
-		if (poi)
-			breakdown(*poi, 'q', EXIT_FAILURE);
-		else
-			breakdown(NULL, 'q', EXIT_FAILURE);
-	}
-
-	return ('q');
-}

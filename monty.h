@@ -48,7 +48,8 @@ void freestack_hd(stack_t *head);
 void freestack_tl(stack_t *tail);
 
 /* MontyUtil2.c */
-stack_t *create_node(stack_t **poi, char mode, char *line);
+stack_t *create_node_s(stack_t **poi, char mode, char *line);
+stack_t *create_node_q(stack_t **poi, char mode, char *line);
 int rm_tl(stack_t **poi, char *s);
 int rm_hd(stack_t **poi, char *s);
 
@@ -61,37 +62,24 @@ char pop_s(char *l, char *arg, int line, stack_t **poi);
 
 /* MontyFunc2.c */
 char pall_s(char *l, char *arg, int line, stack_t **poi);
-char pall_q(char *l, char *arg, int line, stack_t **poi);
 char pint_s(char *l, char *arg, int line, stack_t **poi);
-char pint_q(char *l, char *arg, int line, stack_t **poi);
-char pop_q(char *l, char *arg, int line, stack_t **poi);
 
 /* MontyFunc3.c */
 char swap_s(char *l, char *arg, int line, stack_t **poi);
-char swap_q(char *l, char *arg, int line, stack_t **poi);
 char add_s(char *l, char *arg, int line, stack_t **poi);
-char add_q(char *l, char *arg, int line, stack_t **poi);
 char mod_s(char *l, char *arg, int line, stack_t **poi);
 
 /* MontyFunc4.c */
 char sub_s(char *l, char *arg, int line, stack_t **poi);
-char sub_q(char *l, char *arg, int line, stack_t **poi);
 char div_s(char *l, char *arg, int line, stack_t **poi);
-char div_q(char *l, char *arg, int line, stack_t **poi);
-char mod_q(char *l, char *arg, int line, stack_t **poi);
 
 /* MontyFunc5.c */
 char mul_s(char *l, char *arg, int line, stack_t **poi);
-char mul_q(char *l, char *arg, int line, stack_t **poi);
 char pchar_s(char *l, char *arg, int line, stack_t **poi);
-char pchar_q(char *l, char *arg, int line, stack_t **poi);
 char rotr_s(char *l, char *arg, int line, stack_t **poi);
 
 /* MontyFunc6.c */
 char pstr_s(char *l, char *arg, int line, stack_t **poi);
-char pstr_q(char *l, char *arg, int line, stack_t **poi);
 char rotl_s(char *l, char *arg, int line, stack_t **poi);
-char rotl_q(char *l, char *arg, int line, stack_t **poi);
-char rotr_q(char *l, char *arg, int line, stack_t **poi);
 
 #endif

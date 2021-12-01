@@ -20,13 +20,13 @@ int main(int argc, char **argv)
 		{"sub", sub_s}, {"div", div_s}, {"mul", mul_s},
 		{"mod", mod_s}, {"nop", stack_set}, {"queue", queue_set},
 		{"pchar", pchar_s}, {"pstr", pstr_s}, {"rotl", rotl_s},
-		{"rotr", rotr_s}, {NULL, NULL},
-		{"push", push_q}, {"pall", pall_q}, {"pint", pint_q},
-		{"pop", pop_q}, {"swap", swap_q}, {"add", add_q},
-		{"sub", sub_q}, {"div", div_q}, {"mul", mul_q},
-		{"mod", mod_q}, {"nop", queue_set}, {"stack", stack_set},
-		{"pchar", pchar_q}, {"pstr", pstr_q}, {"rotl", rotl_q},
-		{"rotr", rotr_q}, {NULL, NULL}
+		{"rotr", rotr_s}, {"stack", stack_set}, {NULL, NULL},
+		{"push", push_q}, {"pall", pall_s}, {"pint", pint_s},
+		{"pop", pop_s}, {"swap", swap_s}, {"add", add_s},
+		{"sub", sub_s}, {"div", div_s}, {"mul", mul_s},
+		{"mod", mod_s}, {"nop", queue_set}, {"stack", stack_set},
+		{"pchar", pchar_s}, {"pstr", pstr_s}, {"rotl", rotl_s},
+		{"rotr", rotr_s}, {"queue", queue_set}, {NULL, NULL}
 	};
 	if (argc != 2)
 	{
