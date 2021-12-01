@@ -86,4 +86,8 @@ char mul_q(char *l, char *arg, int line, stack_t **poi);
 char pchar_s(char *l, char *arg, int line, stack_t **poi);
 char pchar_q(char *l, char *arg, int line, stack_t **poi);
 
+/* MontyFunc6.c */
+char pstr_s(char *l, char *arg, int line, stack_t **poi);
+char pstr_q(char *l, char *arg, int line, stack_t **poi);
+
 #endif
